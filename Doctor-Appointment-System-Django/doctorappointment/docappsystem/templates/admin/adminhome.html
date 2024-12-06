@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row">
+          <div class="col-sm-12">
+             <h3 class="page-title text-primary">Welcome {{ user.first_name }} {{ user.last_name }}!</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item active">Dashboard</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <!-- Total Doctor Card -->
+       <div class="col-xl-6 col-sm-6 col-12 d-flex">
+          <div class="card bg-primary w-100 text-white">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-user-graduate fa-3x"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3 class="text-white">{{ doctor_count }}</h3>
+                      <a href="{% url 'viewdoctorlist' %}" class="text-white">
+                         <h6>Total Doctors</h6>
+                      </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+       <!-- Total Specialization Card -->
+       <div class="col-xl-6 col-sm-6 col-12 d-flex">
+          <div class="card bg-secondary w-100 text-white">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-cogs fa-3x"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3 class="text-white">{{ specialization_count }}</h3>
+                      <a href="{% url 'manage_specilizations' %}" class="text-white">
+                         <h6>Total Specializations</h6>
+                      </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Placeholder for images (if you want to add images like doctors or specialization images) -->
+    <div class="row mt-4">
+       <div class="col-md-6">
+          <img src="{% static 'img/doctor_placeholder.jpg' %}" alt="Doctor Image" class="img-fluid rounded shadow-lg">
+       </div>
+       <div class="col-md-6">
+          <img src="{% static 'img/specialization_placeholder.jpg' %}" alt="Specialization Image" class="img-fluid rounded shadow-lg">
+       </div>
+    </div>
+
+    <!-- Example for phone number (Kenya +254) -->
+    <div class="row mt-5">
+       <div class="col-sm-12">
+          <h5 class="text-primary">Contact Us</h5>
+          <p class="text-muted">For more information, reach us at:</p>
+          <p><strong>Phone:</strong> +254 700 000 000</p>
+          <p><strong>Email:</strong> info@healthcare.com</p>
+       </div>
+    </div>
+
+</div>
+
+{% endblock %}
